@@ -306,7 +306,7 @@ export const sendEmail = async () => {
     );
     const info = await transporter.sendMail({
       from: `Ezekiel <${MAIL_USER}>`,
-      to: MAIL_USER,
+      to: MAIL_TO,
       ...mailJSON[new Date().getDay()],
     });
 
