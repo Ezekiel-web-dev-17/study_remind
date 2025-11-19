@@ -315,23 +315,33 @@ export const sendEmail = async () => {
     await transporter.sendMail({
       from: `Ezekiel <${MAIL_USER}>`,
       to: MAIL_USER,
+      subject: "Michael reminder project",
       text: "Mail sent successfully to Michael",
       html: `<html lang="en">
     <body
       style="
-        background-color: #000;
-        color: #fff;
         padding: 0.5rem 3rem;
         box-sizing: border-box;
         color-scheme: light dark;
-        min-height: 100dvh;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
           Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
           sans-serif;
       "
     >
       <p>Email sent to michael successfully</p>
-      <div>${mailJSON[new Date().getDay()].text}</div>
+      <p>Today: ${new Date().toLocaleTimeString(
+        ["WAT"],
+        {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "numeric",
+          hour12: true,
+        }
+      )} WAT</p>
+      <div>content:${mailJSON[new Date().getDay()].text}</div>
     </body>
     </html>`,
     });
