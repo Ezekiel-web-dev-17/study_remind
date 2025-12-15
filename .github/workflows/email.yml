@@ -1,9 +1,9 @@
 name: Study Reminder
 
-on: push
-  # schedule:
-    # - cron: "00 20 * * *"
-  # workflow_dispatch:
+on: 
+  schedule:
+    - cron: "40 19 * * *"
+  workflow_dispatch:
 
 jobs:
   send_email:
